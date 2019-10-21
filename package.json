@@ -1,0 +1,23 @@
+{
+  "name": "torba",
+  "version": "1.0.0",
+  "description": "TORBA!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daymon4/TORBA.git"
+  },
+  "author": "Daymon4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daymon4/TORBA/issues"
+  },
+  "homepage": "https://github.com/Daymon4/TORBA#readme",
+  "dependencies": {
+    "mocha": "6.2.2",
+    "chai": "4.2.0"
+  }
+}
