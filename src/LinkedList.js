@@ -32,6 +32,20 @@ LinkedList.prototype.toString = function() {
     return str;
 }
 
+LinkedList.prototype.toArray = function() {
+    let result = [];
+    let currentNode = this._root; 
+    let i = 0;
+
+    while (currentNode) {
+        result[i] = currentNode.value;
+        currentNode = currentNode.next;
+        i++;
+    }
+
+    return result;
+}
+
 LinkedList.prototype.init = function(arr) {
     if (Array.isArray(arr)) {
         let tempNode = null;

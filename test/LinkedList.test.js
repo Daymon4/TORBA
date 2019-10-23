@@ -193,6 +193,74 @@ describe('LinkedList.toString', () => {
     });
 });
 
+describe('LinkedList.toArray', () => {
+    let llist = null;
+
+    beforeEach(() => {
+        llist = new LinkedList();
+    })
+
+    it('should be return [] (undefined)', () => {
+        const arr = undefined;
+        const expected = [];
+        llist.init(arr);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [] (0)', () => {
+        const arr = [];
+        const expected = [];
+        llist.init(arr);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1] ([1])', () => {
+        const arr = [1];
+        const expected = [1];
+        llist.init(arr);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1, 2] ([1, 2])', () => {
+        const arr = [1, 2];
+        const expected = [1, 2];
+        llist.init(arr);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1, 2, 3, 4, 5] ([1, 2, 3, 4, 5])', () => {
+        const arr = [1, 2, 3, 4, 5];
+        const expected = [1, 2, 3, 4, 5];
+        llist.init(arr);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be return [1, 2, 3, 4, 5, 6] ([1, 2, 3, 4, 5, 6])', () => {
+        const arr = [1, 2, 3, 4, 5, 6];
+        const expected = [1, 2, 3, 4, 5, 6];
+        llist.init(arr);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+});
+
 describe('LinkedList.push', () => {
     let llist = null;
 
