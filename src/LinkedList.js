@@ -35,6 +35,7 @@ LinkedList.prototype.toString = function() {
 LinkedList.prototype.init = function(arr) {
     if (Array.isArray(arr)) {
         let tempNode = null;
+
         for (let i = 0; i < arr.length; i++) {
             const node = new Node(arr[i]);
             
@@ -76,6 +77,32 @@ LinkedList.prototype.push = function(value) {
     this._size++;
 
     return this._size;
+};
+
+LinkedList.prototype.pop = function() {
+    let result = undefined;
+
+    if (this._size) {
+        let prevNode = this._root;
+        let tailNode = this._root;
+
+        if (!tailNode.next) {
+            let result = prevNode.value;
+            this._root = null;
+
+            return result;
+        }
+
+        while (tailNode && tailNode.next) {
+            prevNode = tailNode;
+            tailNode = tailNode.next;           
+        }
+
+        result = prevNode.next.value;
+        prevNode.next = null;
+    }
+
+    return result;
 };
 
 module.exports = LinkedList;
