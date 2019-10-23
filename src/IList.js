@@ -14,3 +14,5 @@ IList.prototype.splice = function(start, number, ...elements) { console.log('ILi
 IList.prototype.sort = function(callback) { console.log('IList.sort') }
 IList.prototype.get = function(index) { console.log('Ilist.get') }
 IList.prototype.set = function(index, value) { console.log('IList.set') };
+
+module.exports = IList;
