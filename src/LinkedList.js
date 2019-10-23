@@ -33,12 +33,15 @@ LinkedList.prototype.toString = function() {
 }
 
 LinkedList.prototype.init = function(arr) {
+    this.clear();
+    
     if (Array.isArray(arr)) {
         let tempNode = null;
+
         for (let i = 0; i < arr.length; i++) {
             const node = new Node(arr[i]);
             
-            if (!this._root) {
+            if (!this._root) { //если вагона нет
                 this._root = node;
                 tempNode = node;     
             } else {
