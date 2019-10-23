@@ -470,3 +470,83 @@ describe('LinkedList.unshift', () => {
         assert.deepEqual(llist.toString(), expectedString);
     });
 });
+
+describe('LinkedList.shift', () => {
+    let llist = null;
+
+    beforeEach(() => {
+        llist = new LinkedList();
+    })
+
+    it('should return undefined (undefined)', () => {
+        const arr = undefined;
+        const expected = undefined;
+        const expectedString = '[]';
+        llist.init(arr);
+
+        const actual = llist.shift();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+    it('should return undefined ([])', () => {
+        const arr = [];
+        const expected = undefined;
+        const expectedString = '[]';
+        llist.init(arr);
+
+        const actual = llist.shift();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+    it('should return 1 ([1])', () => {
+        const arr = [1];
+        const expected = 1;
+        const expectedString = '[]';
+        llist.init(arr);
+
+        const actual = llist.shift();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+    it('should return 1 ([1, 2])', () => {
+        const arr = [1, 2];
+        const expected = 1;
+        const expectedString = '[2]';
+        llist.init(arr);
+
+        const actual = llist.shift();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+    
+    it('should return 2 ([2, 4, 8, 0, -2])', () => {
+        const arr = [2, 4, 8, 0, -2];
+        const expected = 2;
+        const expectedString = '[4, 8, 0, -2]';
+        llist.init(arr);
+
+        const actual = llist.shift();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+    it('should return 5 ([5, 4, 8, 0, -2, 11])', () => {
+        const arr = [5, 4, 8, 0, -2, 11];
+        const expected = 5;
+        const expectedString = '[4, 8, 0, -2, 11]';
+        llist.init(arr);
+
+        const actual = llist.shift();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+});

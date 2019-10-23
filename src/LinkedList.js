@@ -125,4 +125,16 @@ LinkedList.prototype.unshift = function(value) {
     return this._size;
 };
 
+LinkedList.prototype.shift = function() {
+    let result = undefined;
+
+    if (this._size) {
+        let tempNode = this._root.next;
+        result = this._root.value;
+        this._root = tempNode;
+    }
+
+    return result;
+};
+
 module.exports = LinkedList;
