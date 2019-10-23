@@ -33,6 +33,10 @@ LinkedList.prototype.toString = function() {
 }
 
 LinkedList.prototype.init = function(arr) {
+    if (!arr || !arr.length) {
+        return;
+    }
+        
     if (Array.isArray(arr)) {
         let tempNode = null;
         for (let i = 0; i < arr.length; i++) {
@@ -72,10 +76,65 @@ LinkedList.prototype.push = function(value) {
         }
         currentNode.next = node;
     }
-     
+    
     this._size++;
 
     return this._size;
 };
+
+LinkedList.prototype.pop = function() {
+    if (this._size === 0) {
+        return undefined;
+    }
+
+    let i = 2;
+    let tempNode = this._root;
+    let deletedNode = 0;
+    
+    while (i < this._size) {
+        tempNode = tempNode.next;
+        i++;
+    };
+
+    deletedNode =  tempNode.next.value;
+    tempNode.next = null;
+    this._size--;
+
+    return deletedNode;
+};
+
+LinkedList.prototype.toArray = function() {
+    let ourArr = [];
+    let i = 0;
+    let tempNode = this._root;
+    while (tempNode) {
+        ourArr[i] = tempNode.value;
+        i++;
+        tempNode = tempNode.next;
+    } 
+
+    return ourArr;
+}
+
+LinkedList.prototype.shift = function() {
+    let result = this._root.value;
+    let tempNode = this._root;
+
+    tempNode = tempNode.next;
+    this._root = tempNode;
+    
+    return result;
+}
+
+LinkedList.prototype.unshift = function(value) {
+    let node = new Node(value);
+    let tempNode = this._root;
+
+    this._root = node;
+    this._root.next = tempNode;
+    this._size++;
+
+    return this._size;
+}
 
 module.exports = LinkedList;

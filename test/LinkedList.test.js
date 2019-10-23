@@ -293,3 +293,109 @@ describe('LinkedList.push', () => {
     });
 });
 
+describe('LinkedList.pop', () => {
+    let llist = null;
+
+    beforeEach(() => {
+        llist = new LinkedList();
+    })
+
+    it('should delete last and return ([1, 2, 93])', () => {
+        const arr = [1, 2, 93];
+        const expected = 93;
+        const expectedString = '[1, 2]';
+        llist.init(arr);
+
+        const actual = llist.pop();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+    it('should delete last and return ([])', () => {
+        const arr = [];
+        const expected = undefined;
+        const expectedString = '[]';
+        llist.init(arr);
+
+        const actual = llist.pop();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+});
+
+describe('LinkedList.toArray', () => {
+    let llist = null;
+
+    beforeEach(() => {
+        llist = new LinkedList();
+    })
+
+    it('should return correct array if two values array', () => {
+        const expected = [1, 2];
+        const array = [1, 2];
+        llist.init(array);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });
+    
+    it('should return correct array if many values array', () => {
+        const expected = [1, 2, 4, 5, 6];
+        const array = [1, 2, 4, 5, 6];
+        llist.init(array);
+
+        const actual = llist.toArray();
+
+        assert.deepEqual(actual, expected);
+    });    
+});
+
+describe('LinkedList.shift', () => {
+    let llist = null;
+
+    beforeEach(() => {
+        llist = new LinkedList();
+    })
+
+    it('should return  ([1, 12, 45, 18])', () => {
+        const arr = [1,12,45,18];
+        const expected = 1;
+        const expectedString = '[12, 45, 18]';
+        llist.init(arr);
+
+        const actual = llist.shift();
+
+        assert.deepEqual(actual, expected);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+});
+
+describe('LinkedList.unshift', () => {
+    let llist = null;
+
+    beforeEach(() => {
+        llist = new LinkedList();
+    })
+
+    it('should add an element in the begining ([12, 45, 18], 1)', () => {
+        const arr = [12,45,18];
+        const value = 1;
+        const expectedSize = 4;
+        const expectedString = '[1, 12, 45, 18]';
+        llist.init(arr);
+
+        const actual = llist.unshift(value);
+
+        assert.deepEqual(actual, expectedSize);
+        assert.deepEqual(llist.toString(), expectedString);
+    });
+
+});
+
+
+
