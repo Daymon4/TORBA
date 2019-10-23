@@ -105,4 +105,24 @@ LinkedList.prototype.pop = function() {
     return result;
 };
 
+LinkedList.prototype.unshift = function(value) {
+    if (!value && value !== 0) {
+        return this._size;
+    }
+    
+    let node = new Node(value);
+    let currentNode = this._root;
+
+    if (!currentNode) {
+        this._root = node;
+    } else {
+        node.next = currentNode;
+        this._root = node;
+    }
+     
+    this._size++;
+
+    return this._size;
+};
+
 module.exports = LinkedList;
