@@ -114,6 +114,7 @@ LinkedList.prototype.pop = function() {
 
         result = prevNode.next.value;
         prevNode.next = null;
+        this._size--;
     }
 
     return result;
@@ -146,6 +147,7 @@ LinkedList.prototype.shift = function() {
         let tempNode = this._root.next;
         result = this._root.value;
         this._root = tempNode;
+        this._size--;
     }
 
     return result;

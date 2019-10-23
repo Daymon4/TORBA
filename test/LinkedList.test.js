@@ -693,4 +693,15 @@ describe('LinkedList.slice', () => {
 
         assert.deepEqual(actual, expected);
     });
+
+    it('should return [8, 5, 1, 11] ([2, 4, 8, 5, 1, 11])', () => {
+        const arr = [2, 4, 8, 5, 1, 11];
+        const start = 0;
+        const expected = [8, 5, 1, 11];
+        llist.init(arr);
+
+        const actual = llist.slice(start);
+
+        assert.deepEqual(actual, expected);
+    });
 });
