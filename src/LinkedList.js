@@ -151,4 +151,32 @@ LinkedList.prototype.shift = function() {
     return result;
 };
 
+LinkedList.prototype.slice = function(start, end) {
+    let result = [];
+    
+    if (!this._root) {
+        return [];
+    }
+
+    if (!this._root.next) {
+        result[0] = this._root.value;
+    }
+
+    let currentNode = this._root; 
+    let i = 0;
+    let x = 0;
+
+    while (currentNode) {
+        if (start <= i && i < end) {
+            result[x] = currentNode.value;
+            x++;   
+        }
+
+        currentNode = currentNode.next;
+        i++;
+    }
+
+    return result;
+};
+
 module.exports = LinkedList;
