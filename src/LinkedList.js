@@ -169,9 +169,9 @@ LinkedList.prototype.slice = function(start, end) {
     let x = 0;
 
     while (currentNode) {
-        if (start <= i && i < end) {
+        if ((start <= i && i < end) || (!end && start <= i)) {
             result[x] = currentNode.value;
-            x++;   
+            x++;
         }
 
         currentNode = currentNode.next;
