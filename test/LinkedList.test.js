@@ -717,3 +717,102 @@ describe('LinkedList.slice', () => {
         assert.deepEqual(actual, expected);
     });
 });
+
+describe('LinkedList.splice', () => {
+    let llist = null;
+
+    beforeEach(() => {
+        llist = new LinkedList();
+    })
+
+    it('should return [] (undefined)', () => {
+        const arr = undefined;
+        const expected = [];
+        llist.init(arr);
+
+        const actual = llist.splice();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should return [] ([])', () => {
+        const arr = [];
+        const start = 1;
+        const end = 3;
+        const expected = [];
+        llist.init(arr);
+
+        const actual = llist.splice(start, end);
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should return [1] ([1])', () => {
+        const arr = [1];
+        const expected = [1];
+        llist.init(arr);
+
+        const actual = llist.splice();
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should return [1] ([1])', () => {
+        const arr = [1];
+        const start = 0;
+        const end = 5;
+        const expected = [1];
+        llist.init(arr);
+
+        const actual = llist.splice(start, end);
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should return [1] ([1, 2])', () => {
+        const arr = [1, 2];
+        const start = 0;
+        const end = 1;
+        const expected = [1];
+        llist.init(arr);
+
+        const actual = llist.splice(start, end);
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should return [8, 0] ([2, 4, 8, 0, -2])', () => {
+        const arr = [2, 4, 8, 0, -2];
+        const start = 2;
+        const end = 4;
+        const expected = [8, 0];
+        llist.init(arr);
+
+        const actual = llist.splice(start, end);
+
+        assert.deepEqual(actual, expected);
+    });
+    
+    it('should return [2, 4, 8] ([2, 4, 8, 0, -2, 11])', () => {
+        const arr = [2, 4, 8, 0, -2, 11];
+        const start = 0;
+        const end = 3;
+        const expected = [2, 4, 8];
+        llist.init(arr);
+
+        const actual = llist.splice(start, end);
+
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should return [8, 5, 1, 11] ([2, 4, 8, 5, 1, 11])', () => {
+        const arr = [2, 4, 8, 5, 1, 11];
+        const start = 2;
+        const expected = [8, 5, 1, 11];
+        llist.init(arr);
+
+        const actual = llist.splice(start);
+
+        assert.deepEqual(actual, expected);
+    });
+});

@@ -103,6 +103,7 @@ LinkedList.prototype.pop = function() {
         if (!tailNode.next) {
             let result = prevNode.value;
             this._root = null;
+            this._size = 0;
 
             return result;
         }
@@ -179,6 +180,10 @@ LinkedList.prototype.slice = function(start, end) {
     }
 
     return result;
+};
+
+LinkedList.prototype.splice = function(start, number, ...elements){
+
 };
 
 module.exports = LinkedList;
