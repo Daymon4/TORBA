@@ -8,7 +8,7 @@ const LinkedList = function() {
     this._size = 0;
 }
 
-LinkedList.prototype = Object.create(IList.prototype)
+LinkedList.prototype = Object.create(IList.prototype);
 LinkedList.prototype.constructor = LinkedList;
 
 LinkedList.prototype.getSize = function() {
